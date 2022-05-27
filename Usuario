@@ -1,0 +1,45 @@
+package classes;
+
+import java.util.Objects;
+
+import javax.swing.JOptionPane;
+
+public class Usuario {
+
+	public String nome;
+	public String login;
+	public String senha;
+	public String email;
+	
+	public void Cadastro(){
+		this.nome = JOptionPane.showInputDialog("Digite o seu nome:");
+		this.login = JOptionPane.showInputDialog("Digite um login:");
+		this.senha = JOptionPane.showInputDialog("Digite uma senha:");
+		this.email = JOptionPane.showInputDialog("Digite um email:");
+	}
+	
+	public void Autenticacao(Usuario login, Usuario senha) {
+		login.login = JOptionPane.showInputDialog("Digite o seu login de acesso:");
+		senha.senha= JOptionPane.showInputDialog("Digite a senha de acesso:");
+		}
+
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(login, senha);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(login, other.login) && Objects.equals(senha, other.senha);
+	}
+			
+	
+}
