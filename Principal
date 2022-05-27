@@ -1,0 +1,31 @@
+package classes;
+
+import javax.swing.JOptionPane;
+
+public class Teste {
+
+	public static void main(String[] args) {
+	
+		
+		if(JOptionPane.showConfirmDialog(null, "Bem vindo usuario, deseja criar uma conta?")==0){
+			Usuario novo1 = new Usuario();
+			novo1.Cadastro();
+			
+			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!, a seguir realize seu login:");
+			
+			Usuario novo2 = new Usuario();
+			novo2.Autenticacao(novo1, novo2);
+			
+			if(novo1.equals(novo2)) {
+				JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!" );
+			}else {
+			JOptionPane.showMessageDialog(null, "Login ou senha inválidos. Tente novamente:");
+			}
+			
+		}else{
+			JOptionPane.showMessageDialog(null, "Quem sabe outro dia né?");
+		}
+		
+	}
+
+}
